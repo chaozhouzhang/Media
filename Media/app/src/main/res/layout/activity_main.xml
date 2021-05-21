@@ -13,9 +13,34 @@
         android:background="@color/colorPrimary"
         android:text="音频"
         android:layout_margin="16dp"
+        android:id="@+id/btn_music"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent">
 
     </Button>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_music"
+        android:background="@color/colorPrimary"
+        android:text="緩存"
+        android:layout_margin="16dp"
+        android:id="@+id/btn_buffer"
+        android:textColor="@android:color/white">
+
+    </Button>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_buffer"
+        android:background="@color/colorPrimary"
+        android:text="攝像頭"
+        android:layout_margin="16dp"
+        android:id="@+id/btn_camera"
+        android:textColor="@android:color/white">
+
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

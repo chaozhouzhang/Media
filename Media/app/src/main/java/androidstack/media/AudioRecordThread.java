@@ -4,6 +4,8 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 
+import java.nio.ByteBuffer;
+
 public class AudioRecordThread extends Thread {
 
     /**
@@ -62,7 +64,7 @@ public class AudioRecordThread extends Thread {
      *
      */
 
-    private DataBuffer mRecordDataBuf = null;
+    private ByteBuffer mRecordDataBuf = null;
     /**
      * 创建录音对象
      */
@@ -122,11 +124,7 @@ public class AudioRecordThread extends Thread {
             } else {
                 numSample += numOfRead;
             }
-
-            if (mRecordDataBuf.getLeft() <= recBuf.length) {
-                mRecordDataBuf.erase(recBuf.length);
-            }
-            mRecordDataBuf.pushData(recBuf, 0, numOfRead);
+            mRecordDataBuf.put(recBuf, 0, numOfRead);
         }
         stopRecord();
         if (mAudioRecord != null) {
